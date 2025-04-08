@@ -1,0 +1,7 @@
+<suite name="CucumberParallelSuite" parallel="tests" thread-count="3">
+    <test name="Functional_Tests">
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+</suite>
