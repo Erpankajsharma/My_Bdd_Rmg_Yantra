@@ -24,9 +24,9 @@ Feature: Create a project
 
     Examples:
       | Project Name | Project Manager | Project Status | Toast Message                       |
-      | RMG_BDD      | Pankaj_         | Created        | Project RMG_BDD Successfuly Added   |
+      | RMG_BDD      | Pankaj_         | On Going       | Project RMG_BDD Successfuly Added   |
 #      | RMG_BDD_1    | Pankaj_1        | On Going       | Project RMG_BDD_1 Successfuly Added |
-#      | RMG_BDD_2    | Pankaj_2        | Completed      | Project RMG_BDD_2 Successfuly Added |
+#      | RMG_BDD_2    | Pankaj_2        | On Going       | Project RMG_BDD_2 Successfuly Added |
 
   @FunctionalTest
   Scenario Outline: delete a project with passing valid data

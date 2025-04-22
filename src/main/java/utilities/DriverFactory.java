@@ -12,25 +12,31 @@ import java.time.Duration;
 
 public class DriverFactory {
 
-    private WebDriver driver;
+//    private WebDriver driver;
 
-    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    public static ThreadLocal<WebDriver > tlDriver = new ThreadLocal<>();
 
     public WebDriver init_Driver(String browser){
 
         if (browser.equalsIgnoreCase("chrome")){
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--incognito");
+//            options.addArguments("--remote-allow-origins=*");
+//            options.addArguments("--disable-javascript");
+//            options.addArguments("--disable-notifications");
+
             tlDriver.set(new ChromeDriver(options));
         }
         else if (browser.equalsIgnoreCase("firefox")){
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("-private");
+//            options.addArguments("--remote-allow-origins=*");
             tlDriver.set(new FirefoxDriver(options));
         }
         else if (browser.equalsIgnoreCase("edge")){
             EdgeOptions options = new EdgeOptions();
-            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("-inprivate");
+//            options.addArguments("--remote-allow-origins=*");
             tlDriver.set(new EdgeDriver(options));
         }
         else {

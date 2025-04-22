@@ -36,7 +36,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.10.2</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
 
 <!--        &lt;!&ndash; https://mvnrepository.com/artifact/io.cucumber/cucumber-junit &ndash;&gt;-->
@@ -68,7 +68,39 @@
             <version>9.2.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.38</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
+
+    <!--    <profiles>-->
+    <!--        <profile>-->
+    <!--            <id>smoke</id>-->
+    <build>
+                        <pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.3</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+
+                        </pluginManagement>
+    </build>
+    <!--        </profile>-->
+    <!--    </profiles>-->
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

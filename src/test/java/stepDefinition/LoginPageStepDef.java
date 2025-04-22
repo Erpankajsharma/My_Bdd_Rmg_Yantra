@@ -4,11 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.LoginPage;
 import utilities.DriverFactory;
-import utilities.Hooks;
 
 public class LoginPageStepDef {
 
@@ -28,5 +26,6 @@ public class LoginPageStepDef {
     @And("I click on login button")
     public void i_click_on_login_button() throws InterruptedException {
         loginPage.clickOnSignIn();
+        Thread.sleep(3000);
     }
 }

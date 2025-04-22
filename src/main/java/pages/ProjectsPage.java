@@ -3,24 +3,22 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.DriverFactory;
+import utilities.SeleniumSupport;
 
-import java.time.Duration;
 import java.util.List;
 
 public class ProjectsPage {
 
-    private WebDriver driver;
 //    private String proName;
+    private WebDriver driver;
+    private SeleniumSupport seleniumSupport;
 
     private By listOfProjects = By.xpath("//h2[text()='List of']/b[text()=' Projects']");
     private By createProjectBtn = By.xpath("//button[@class=\"btn btn-success\"]");
 //    private By deleteButtonOfProject = By.xpath("//tr/td[text()='"+proName+"']/../descendant::a[@class='delete']");
     private By popupHeader = By.xpath("//div[@id=\"deleteProjectModal\"]/descendant::h4[text()='Delete Project']");
     private By deleteOnPopup = By.xpath("//div[@id=\"deleteProjectModal\"]/descendant::input[@value=\"Delete\"]");
-
 
     private By projectNameTxtBx = By.name("projectName");
     private By projectManagerTxtBx = By.name("createdBy");
@@ -32,33 +30,39 @@ public class ProjectsPage {
 
     public ProjectsPage(WebDriver driver){
         this.driver = driver;
+        seleniumSupport = new SeleniumSupport(DriverFactory.getDriver());
     }
 
     public boolean checkListOfProjectHeaderIsVisible(){
-        return driver.findElement(listOfProjects).isDisplayed();
+        WebElement element = driver.findElement(listOfProjects);
+        boolean flag = seleniumSupport.isElementDisplayed(element);
+        return flag;
     }
 
     public void clickCreateProjectBtn(){
-        driver.findElement(createProjectBtn).click();
+        WebElement element = driver.findElement(createProjectBtn);
+        seleniumSupport.clickOnElement(element);
     }
 
     public void enterProjectName(String projectName){
-        driver.findElement(projectNameTxtBx).sendKeys(projectName);
+        WebElement element = driver.findElement(projectNameTxtBx);
+        seleniumSupport.sendText(element, projectName);
     }
 
     public void enterProjectManagerName(String projectManagerName){
-        driver.findElement(projectManagerTxtBx).sendKeys(projectManagerName);
+//        driver.findElement(projectManagerTxtBx).sendKeys(projectManagerName);
+        WebElement element = driver.findElement(projectManagerTxtBx);
+        seleniumSupport.sendText(element, projectManagerName);
     }
 
     public void selectProjectStatusOption(String projectStatus){
-//        String status = "Created";
         WebElement statusDD = driver.findElement(projectStatusDD);
-        Select s1=new Select(statusDD);
-        s1.selectByValue(projectStatus);
+        seleniumSupport.selectOptionByValue(statusDD, projectStatus);
     }
 
     public void clickOnSubmit(){
-        driver.findElement(addProjectBtn).click();
+        WebElement element = driver.findElement(addProjectBtn);
+        seleniumSupport.clickOnElement(element);
     }
 
     public List<WebElement> getListOfProject(){
@@ -70,26 +74,28 @@ public class ProjectsPage {
     }
 
     public String getToastMessage(){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(toastMessage));
-        String toastMessageTxt = driver.findElement(toastMessage).getText();
+        seleniumSupport.explicitWait(toastMessage);
+        WebElement element = driver.findElement(toastMessage);
+        String toastMessageTxt = seleniumSupport.getElementText(element);
         return toastMessageTxt;
     }
 
     public void clickDeleteBtnOfProject(String proName){
 //        this.proName=proName;
-        driver.findElement(By.xpath("//tr/td[text()='"+proName+"']/../descendant::a[@class='delete']")).click();
+        WebElement element = driver.findElement(By.xpath("//tr/td[text()='"+proName+"']/../descendant::a[@class='delete']"));
+        seleniumSupport.clickOnElement(element);
     }
 
     public boolean popupIsDisplayed(){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(popupHeader));
-        boolean flag = driver.findElement(popupHeader).isDisplayed();
+        seleniumSupport.explicitWait(popupHeader);
+        WebElement element = driver.findElement(popupHeader);
+        boolean flag = seleniumSupport.isElementDisplayed(element);
         return flag;
     }
 
     public void clickDeleteOnPopup(){
-        driver.findElement(deleteOnPopup).click();
+        WebElement element = driver.findElement(deleteOnPopup);
+        seleniumSupport.clickOnElement(element);
     }
 
 }
