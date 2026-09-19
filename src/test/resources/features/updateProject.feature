@@ -12,19 +12,25 @@ Feature: Create a project
     When I click on projects feature
     Then List of projects page should be displayed
 
-  @FunctionalTest
+  @FunctionalTest1
   Scenario Outline: create a project with passing valid data
-    When I click on create project button
-    And I enter project name "<Project Name>"
-    And I enter project manager name "<Project Manager>"
-    And I select project status "<Project Status>"
-    And I click on addProject button
-    Then I validate toast message "<Toast Message>"
-    Then I validate the "<Project Name>" should be successfully created
+#    When I click on create project button
+#    And I enter project name "<Project Name>"
+#    And I enter project manager name "<Project Manager>"
+#    And I select project status "<Project Status>"
+#    And I click on addProject button
+#    Then I validate toast message "<Toast Message>"
+#    Then I validate the "<Project Name>" should be successfully created
+    When I get the projectId of the created project "<Project Name>"
+    When I click on edit button of a project "<Project Name>"
+    And I edit project status "<Updated project Status>"
+    And I click on save button
+    Then I validate updatedToast message of project "<Project Name>"
+#    Then I validate the "<Project Name>" should be successfully created
 
     Examples:
-      | Project Name | Project Manager | Project Status | Toast Message                     |  |
-      | RMG_BDD      | Pankaj_         | On Going       | Project RMG_BDD Successfuly Added |  |
+      | Project Name | Project Manager | Project Status | Toast Message                     | Updated project Status | Updated Toast Message              |
+      | RMG_BDD      | Pankaj_         | On Going       | Project RMG_BDD Successfuly Added | Completed              | RMG_BDDProject Successfuly Updated |
 #      | RMG_BDD_1    | Pankaj_1        | On Going       | Project RMG_BDD_1 Successfuly Added |
 #      | RMG_BDD_2    | Pankaj_2        | On Going       | Project RMG_BDD_2 Successfuly Added |
 

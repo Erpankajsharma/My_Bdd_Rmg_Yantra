@@ -1,6 +1,7 @@
 package appHooks;
 
 
+import context.ScenarioContext;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,9 +19,11 @@ public class Hooks {
     private ConfigReader configReader;
     private Properties prop;
     private DatabaseUtils databaseUtils;
+//    public ScenarioContext scenarioContext;
 
     @Before(order = 0)
     public void getProperty(){
+//        scenarioContext = new ScenarioContext();
         configReader = new ConfigReader();
         prop = configReader.init_Prop();
     }

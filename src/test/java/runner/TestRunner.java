@@ -5,8 +5,8 @@ import io.cucumber.testng.CucumberOptions;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
-                glue = {"stepDefinition", "utilities", "appHooks"},
-                tags = "@FunctionalTest",
+                glue = {"stepDefinition", "utilities", "appHooks","context"},
+                tags = "@FunctionalTest1",
                 plugin = {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
                 monochrome = true)
 public class TestRunner extends AbstractTestNGCucumberTests {

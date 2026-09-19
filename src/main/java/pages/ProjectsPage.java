@@ -28,6 +28,10 @@ public class ProjectsPage {
     private By projectNames = By.xpath("//tr/td[2]");
     private By toastMessage = By.xpath("//div[@class='Toastify']/descendant::div[@class='Toastify__toast-body']");
 
+    private By editProjectStatusDD = By.xpath("//label[text()='Status']/../select[@name='status']");
+    private By clickOnSave = By.xpath("//input[@value='Save']");
+//    private By getProjectId = By.xpath("//td[text()='RMG_BDD']/preceding-sibling::td");
+
     public ProjectsPage(WebDriver driver){
         this.driver = driver;
         seleniumSupport = new SeleniumSupport(DriverFactory.getDriver());
@@ -60,6 +64,16 @@ public class ProjectsPage {
         seleniumSupport.selectOptionByValue(statusDD, projectStatus);
     }
 
+    public void selectProjectStatusOptionFromEditPopup(String projectStatus){
+        WebElement statusDD = driver.findElement(editProjectStatusDD);
+        seleniumSupport.selectOptionByValue(statusDD, projectStatus);
+    }
+
+    public void clickOnSave(){
+        WebElement element = driver.findElement(clickOnSave);
+        seleniumSupport.clickOnElement(element);
+    }
+
     public void clickOnSubmit(){
         WebElement element = driver.findElement(addProjectBtn);
         seleniumSupport.clickOnElement(element);
@@ -86,6 +100,13 @@ public class ProjectsPage {
         seleniumSupport.clickOnElement(element);
     }
 
+    public void clickEditBtnOfProject(String proName){
+//        this.proName=proName;
+        WebElement element = driver.findElement(By.xpath("//tr/td[text()='"+proName+"']/../descendant::i[@title='Edit']"));
+        seleniumSupport.clickOnElement(element);
+    }
+
+
     public boolean popupIsDisplayed(){
         seleniumSupport.explicitWait(popupHeader);
         WebElement element = driver.findElement(popupHeader);
@@ -96,6 +117,11 @@ public class ProjectsPage {
     public void clickDeleteOnPopup(){
         WebElement element = driver.findElement(deleteOnPopup);
         seleniumSupport.clickOnElement(element);
+    }
+
+    public String getProjectId(String projectName){
+        String text = driver.findElement(By.xpath("//td[text()='"+projectName+"']/preceding-sibling::td")).getText();
+        return text;
     }
 
 }

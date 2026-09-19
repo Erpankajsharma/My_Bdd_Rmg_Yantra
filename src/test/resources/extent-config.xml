@@ -24,21 +24,28 @@
 
         <!-- defaults to https -->
 
-        <protocol>https</protocol>
+        <protocol>http</protocol>
 
 
 
         <!-- title of the document -->
 
-        <documentTitle>Delphi Extent Report</documentTitle>
+        <documentTitle>TrAck Extent Report</documentTitle>
 
 
 
         <!-- report name - displayed at top-nav -->
 
-        <reportName>DELPHI UI REPORT</reportName>
-
-
+        <reportName>TrAck UI REPORT</reportName>
+<!--        C:\Users\kisku\IdeaProjects\My_BDD_Rmg_Yantra\src\test\resources\images\barclays.png-->
+<!--        <logo>file:///C:/Users/YourName/Project/src/test/resources/images/barclays.png</logo>-->
+<!--        <logo>file:///C:/Users/kisku/IdeaProjects/My_BDD_Rmg_Yantra/src/test/resources/barclays.png</logo>-->
+<!--        <logo>http://localhost:8084/images/barclays.png</logo>-->
+<!--        <logo>-->
+<!--            <![CDATA[-->
+<!--                <img src='http://localhost:8084/images/barclays.png'/>-->
+<!--            ]]>-->
+<!--        </logo>-->
 
         <!-- location of charts in the test view -->
 
@@ -51,32 +58,56 @@
         <!-- custom javascript -->
 
         <scripts>
-
             <![CDATA[
-
                 $(document).ready(function() {
+                    var logo = '<img src="src/test/resources/images/barclays.png" style="height:40px; margin-right:15px;">';
 
-
-
+                    $('.brand-name').prepend(logo);
                 });
-
             ]]>
-
         </scripts>
+
+        <styles>
+            <![CDATA[
+                .brand-name {
+                    display: flex !important;
+                    align-items: center !important;
+                }
+
+                .brand-name img {
+                    object-fit: contain;
+                }
+            ]]>
+        </styles>
+
+
+<!--        <scripts>-->
+
+<!--            <![CDATA[-->
+
+<!--                $(document).ready(function() {-->
+
+
+
+<!--                });-->
+
+<!--            ]]>-->
+
+<!--        </scripts>-->
 
 
 
         <!-- custom styles -->
 
-        <styles>
+<!--        <styles>-->
 
-            <![CDATA[
+<!--            <![CDATA[-->
 
 
 
-            ]]>
+<!--            ]]>-->
 
-        </styles>
+<!--        </styles>-->
 
     </configuration>
 
