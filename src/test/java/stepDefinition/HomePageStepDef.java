@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.HomePage;
 import utilities.DriverFactory;
-import utilities.SeleniumSupport;
 
 public class HomePageStepDef {
 

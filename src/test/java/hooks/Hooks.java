@@ -1,7 +1,6 @@
-package appHooks;
+package hooks;
 
 
-import context.ScenarioContext;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
