@@ -1,8 +1,7 @@
 Feature: Create a project
 
   As a user of RMG YANTRA website
-  I want to able to login with my account
-  So that I can able to create a project
+  I can able to create a project, delete a project.
 
   Background:
     Given I am on the rmg yantra login page
@@ -12,7 +11,7 @@ Feature: Create a project
     When I click on projects feature
     Then List of projects page should be displayed
 
-  @FunctionalTest
+  @functionalTest
   Scenario Outline: create a project with passing valid data
     When I click on create project button
     And I enter project name "<Project Name>"
@@ -28,7 +27,7 @@ Feature: Create a project
 #      | RMG_BDD_1    | Pankaj_1        | On Going       | Project RMG_BDD_1 Successfuly Added |
 #      | RMG_BDD_2    | Pankaj_2        | On Going       | Project RMG_BDD_2 Successfuly Added |
 
-  @FunctionalTest
+  @functionalTest
   Scenario Outline: delete a project with passing valid data
     When I click on delete button of a project "<Project Name>"
     Then I validate a delete project popup should be displayed

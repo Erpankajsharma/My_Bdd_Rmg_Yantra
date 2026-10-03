@@ -12,7 +12,7 @@ Feature: Create a project
     When I click on projects feature
     Then List of projects page should be displayed
 
-  @FunctionalTest1
+  @functionalTest1
   Scenario Outline: create a project with passing valid data
 #    When I click on create project button
 #    And I enter project name "<Project Name>"
@@ -34,7 +34,7 @@ Feature: Create a project
 #      | RMG_BDD_1    | Pankaj_1        | On Going       | Project RMG_BDD_1 Successfuly Added |
 #      | RMG_BDD_2    | Pankaj_2        | On Going       | Project RMG_BDD_2 Successfuly Added |
 
-  @FunctionalTest
+  @functionalTest
   Scenario Outline: delete a project with passing valid data
     When I click on delete button of a project "<Project Name>"
     Then I validate a delete project popup should be displayed

@@ -62,6 +62,6 @@ public class Hooks {
 
     @After(order = 0)
     public void disconnectDB(){
-        databaseUtils.disconnetToDB();
+        databaseUtils.disconnectToDB();
     }
 }

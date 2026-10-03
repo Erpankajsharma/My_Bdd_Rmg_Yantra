@@ -14,7 +14,7 @@ public class DriverFactory {
 
 //    private WebDriver driver;
 
-    public static ThreadLocal<WebDriver > tlDriver = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver > tlDriver = new ThreadLocal<>();
 
     public WebDriver init_Driver(String browser){
 

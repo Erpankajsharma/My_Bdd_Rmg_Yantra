@@ -117,7 +117,7 @@ public class ProjectsPageStepDef {
 
     @Then("I validate updatedToast message of project {string}")
     public void iValidateUpdatedToastMessageOfProject(String projectName) {
-        String suffixMsg = "Project Successfuly Updated";
+        String suffixMsg = "Project Successfully Updated";
         String projectId = (String) scenarioContext.getContext(projectName);
         String expToastMsg = projectId+suffixMsg;
 

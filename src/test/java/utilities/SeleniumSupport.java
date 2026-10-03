@@ -14,6 +14,8 @@ public class SeleniumSupport {
 
     private WebDriver driver;
     private WebDriverWait wait;
+    private Alert alert;
+    private Select select;
 //    private Select select;
 
     public SeleniumSupport(WebDriver driver){
@@ -22,12 +24,12 @@ public class SeleniumSupport {
     }
 
     public void acceptAlert(){
-        Alert alert = driver.switchTo().alert();
+        alert = driver.switchTo().alert();
         alert.accept();
     }
 
     public void dismissAlert(){
-        Alert alert = driver.switchTo().alert();
+        alert = driver.switchTo().alert();
         alert.dismiss();
     }
 
@@ -36,7 +38,7 @@ public class SeleniumSupport {
     }
 
     public void selectOptionByValue(WebElement dropDownLocator, String value){
-        Select select=new Select(dropDownLocator);
+        select=new Select(dropDownLocator);
         select.selectByValue(value);
     }
 

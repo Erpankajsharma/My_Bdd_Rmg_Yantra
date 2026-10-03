@@ -25,7 +25,7 @@ public class DatabaseUtils {
         }
     }
 
-    public void disconnetToDB(){
+    public void disconnectToDB(){
         try {
             connection.close();
             Reporter.log("===Database has been disconnected.===", true);
