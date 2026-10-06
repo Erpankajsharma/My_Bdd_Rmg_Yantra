@@ -66,6 +66,7 @@ public class ProjectsPage {
     }
 
     public void selectProjectStatusOptionFromEditPopup(String projectStatus){
+        seleniumSupport.explicitWait(editProjectStatusDD);
         WebElement statusDD = driver.findElement(editProjectStatusDD);
         seleniumSupport.selectOptionByValue(statusDD, projectStatus);
     }

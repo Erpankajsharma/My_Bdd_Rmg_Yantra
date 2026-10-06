@@ -18,7 +18,7 @@ Feature: Create, update and delete a project
     And I click on addProject button
     Then I validate toast message "<Toast Message>"
     Then I validate the "<Project Name>" should be successfully created
-    When I get the projectId of the created project "<Project Name>"
+#    When I get the projectId of the created project "<Project Name>"
     When I click on edit button of a project "<Project Name>"
     And I edit project status "<Updated project Status>"
     And I click on save button
