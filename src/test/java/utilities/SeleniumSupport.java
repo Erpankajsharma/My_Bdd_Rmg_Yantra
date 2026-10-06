@@ -18,6 +18,10 @@ public class SeleniumSupport {
     private Select select;
 //    private Select select;
 
+    public void navigateTo(String url){
+        driver.navigate().to(url);
+    }
+
     public SeleniumSupport(WebDriver driver){
         this.driver=driver;
         wait=new WebDriverWait(driver, Duration.ofSeconds(20));

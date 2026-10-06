@@ -4,10 +4,7 @@ Feature: Create a project
   I can able to create a project, delete a project.
 
   Background:
-    Given I am on the rmg yantra login page
-    When I have entered valid username and password
-    And I click on login button
-    Then I should be logged in successfully
+    Given I am on rmg yantra home page
     When I click on projects feature
     Then List of projects page should be displayed
 

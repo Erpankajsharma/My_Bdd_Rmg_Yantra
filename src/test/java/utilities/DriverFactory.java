@@ -21,6 +21,13 @@ public class DriverFactory {
         if (browser.equalsIgnoreCase("chrome")){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
+
+//            options.addArguments("user-data-dir=D:\\RMG_YANTRA");
+//            // Important fixes
+//            options.addArguments("--remote-allow-origins=*");
+//            options.addArguments("--no-sandbox");
+//            options.addArguments("--disable-dev-shm-usage");
+
 //            options.addArguments("--remote-allow-origins=*");
 //            options.addArguments("--disable-javascript");
 //            options.addArguments("--disable-notifications");

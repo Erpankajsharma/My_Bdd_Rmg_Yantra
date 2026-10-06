@@ -7,9 +7,9 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    private Properties prop;
+    private static Properties prop;
 
-    public Properties init_Prop() {
+    public static Properties init_Prop() {
 
         prop = new Properties();
         try {
@@ -21,5 +21,10 @@ public class ConfigReader {
             e.printStackTrace();
         }
         return prop;
+    }
+
+    public static String getProperty(String key){
+        String data = prop.getProperty(key);
+        return data;
     }
 }

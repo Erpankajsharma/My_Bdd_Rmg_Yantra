@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 
 import org.testng.Assert;
 import pages.LoginPage;
+import utilities.ConfigReader;
 import utilities.DriverFactory;
 
 public class LoginPageStepDef {
@@ -14,14 +15,14 @@ public class LoginPageStepDef {
 
     @Given("I am on the rmg yantra login page")
     public void i_am_on_the_rmg_yantra_login_page() {
-        DriverFactory.getDriver().get("http://localhost:8084");
+//        DriverFactory.getDriver().get("http://localhost:8084");
         String actTitle = loginPage.getTitle();
         Assert.assertEquals(actTitle, "React App");
     }
     @When("I have entered valid username and password")
     public void i_have_entered_valid_username_and_password() {
-        loginPage.enterUserName("rmgyantra");
-        loginPage.enterPassword("rmgy@9999");
+        loginPage.enterUserName(ConfigReader.getProperty("app_username"));
+        loginPage.enterPassword(ConfigReader.getProperty("app_password"));
     }
     @And("I click on login button")
     public void i_click_on_login_button() throws InterruptedException {

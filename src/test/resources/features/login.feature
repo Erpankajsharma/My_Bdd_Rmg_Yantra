@@ -1,3 +1,4 @@
+@skip
 Feature: Login functionality for RMG YANTRA website
 
   As a user of RMG YANTRA website

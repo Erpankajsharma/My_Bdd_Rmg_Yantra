@@ -60,6 +60,7 @@ public class ProjectsPage {
     }
 
     public void selectProjectStatusOption(String projectStatus){
+        seleniumSupport.explicitWait(projectStatusDD);
         WebElement statusDD = driver.findElement(projectStatusDD);
         seleniumSupport.selectOptionByValue(statusDD, projectStatus);
     }

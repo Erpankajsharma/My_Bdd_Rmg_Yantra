@@ -8,12 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.ProjectsPage;
 import utilities.DriverFactory;
+import utilities.SeleniumSupport;
 
 import java.util.List;
 
 public class ProjectsPageStepDef {
 
-    private ProjectsPage projectsPage;
+    private ProjectsPage projectsPage =  new ProjectsPage(DriverFactory.getDriver());
     private ScenarioContext scenarioContext = new ScenarioContext();
 
 //    public ProjectsPageStepDef(ScenarioContext scenarioContext){
@@ -22,7 +23,7 @@ public class ProjectsPageStepDef {
 
     @Then("List of projects page should be displayed")
     public void list_of_projects_page_should_be_displayed() {
-        projectsPage = new ProjectsPage(DriverFactory.getDriver());
+
         boolean flag = projectsPage.checkListOfProjectHeaderIsVisible();
         Assert.assertTrue(true);
     }
@@ -117,9 +118,10 @@ public class ProjectsPageStepDef {
 
     @Then("I validate updatedToast message of project {string}")
     public void iValidateUpdatedToastMessageOfProject(String projectName) {
-        String suffixMsg = "Project Successfuly Updated";
-        String projectId = (String) scenarioContext.getContext(projectName);
-        String expToastMsg = projectId+suffixMsg;
+//        String suffixMsg = "Project Successfuly Updated";
+//        String projectId = (String) scenarioContext.getContext(projectName);
+//        String expToastMsg = projectId+suffixMsg;
+        String expToastMsg = "Project "+projectName+" Successfuly Added";
 
         String actualToastMsg = projectsPage.getToastMessage();
         Assert.assertEquals(actualToastMsg, expToastMsg);

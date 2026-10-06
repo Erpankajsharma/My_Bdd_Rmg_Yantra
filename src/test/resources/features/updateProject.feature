@@ -1,26 +1,23 @@
-Feature: Create a project
+Feature: Create, update and delete a project
 
   As a user of RMG YANTRA website
   I want to able to login with my account
   So that I can able to create a project
 
   Background:
-    Given I am on the rmg yantra login page
-    When I have entered valid username and password
-    And I click on login button
-    Then I should be logged in successfully
+    Given I am on rmg yantra home page
     When I click on projects feature
     Then List of projects page should be displayed
 
   @functionalTest1
-  Scenario Outline: create a project with passing valid data
-#    When I click on create project button
-#    And I enter project name "<Project Name>"
-#    And I enter project manager name "<Project Manager>"
-#    And I select project status "<Project Status>"
-#    And I click on addProject button
-#    Then I validate toast message "<Toast Message>"
-#    Then I validate the "<Project Name>" should be successfully created
+  Scenario Outline: create and update a project with passing valid data
+    When I click on create project button
+    And I enter project name "<Project Name>"
+    And I enter project manager name "<Project Manager>"
+    And I select project status "<Project Status>"
+    And I click on addProject button
+    Then I validate toast message "<Toast Message>"
+    Then I validate the "<Project Name>" should be successfully created
     When I get the projectId of the created project "<Project Name>"
     When I click on edit button of a project "<Project Name>"
     And I edit project status "<Updated project Status>"
@@ -29,12 +26,12 @@ Feature: Create a project
 #    Then I validate the "<Project Name>" should be successfully created
 
     Examples:
-      | Project Name | Project Manager | Project Status | Toast Message                     | Updated project Status | Updated Toast Message              |
-      | RMG_BDD      | Pankaj_         | On Going       | Project RMG_BDD Successfuly Added | Completed              | RMG_BDDProject Successfuly Updated |
-#      | RMG_BDD_1    | Pankaj_1        | On Going       | Project RMG_BDD_1 Successfuly Added |
-#      | RMG_BDD_2    | Pankaj_2        | On Going       | Project RMG_BDD_2 Successfuly Added |
+      | Project Name | Project Manager | Project Status | Toast Message                     | Updated project Status | Updated Toast Message               |
+      | RMG_BDD      | Pankaj_         | On Going       | Project RMG_BDD Successfuly Added | Completed              | Project RMG_BDD Successfuly Updated |
+#      | RMG_BDD_1    | Pankaj_1        | On Going       | Project RMG_BDD_1 Successfuly Added | Completed	          | Project RMG_BDD_1 Successfuly Updated |
+#      | RMG_BDD_2    | Pankaj_2        | On Going       | Project RMG_BDD_2 Successfuly Added | Completed	          | Project RMG_BDD_2 Successfuly Updated |         |
 
-  @functionalTest
+  @functionalTest1
   Scenario Outline: delete a project with passing valid data
     When I click on delete button of a project "<Project Name>"
     Then I validate a delete project popup should be displayed

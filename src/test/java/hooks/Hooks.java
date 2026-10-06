@@ -5,26 +5,30 @@ import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.DatabaseUtils;
 import utilities.DriverFactory;
 
 import java.util.Properties;
 
+import static utilities.ConfigReader.init_Prop;
+
 public class Hooks {
 
     private DriverFactory driverFactory;
     private WebDriver driver;
-    private ConfigReader configReader;
+//    private ConfigReader configReader;
     private Properties prop;
     private DatabaseUtils databaseUtils;
 //    public ScenarioContext scenarioContext;
+    private LoginPage loginPage;
 
     @Before(order = 0)
-    public void getProperty(){
+    public void initProperty(){
 //        scenarioContext = new ScenarioContext();
-        configReader = new ConfigReader();
-        prop = configReader.init_Prop();
+//        configReader = new ConfigReader();
+        prop = init_Prop();
     }
 
     @Before(order = 1)
@@ -42,6 +46,13 @@ public class Hooks {
         String browserName = prop.getProperty("browser");
         driverFactory = new DriverFactory();
         driver = driverFactory.init_Driver(browserName);
+
+        driver.get("http://localhost:8084");
+
+        String userName = prop.getProperty("app_username");
+        String password = prop.getProperty("app_password");
+        loginPage = new LoginPage(driver);
+        loginPage.loginToApp(userName, password);
     }
 
 //    =======================================After Started=============================================
